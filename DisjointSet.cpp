@@ -24,7 +24,7 @@ public:
 		int ult_pn2 = findParent(n2);
 		
 		if(ult_pn1 == ult_pn2) return;
-		if(ult_pn1 < ult_pn2) swap(ult_pn1,ult_pn2);
+		if(size[ult_pn1] < size[ult_pn2]) swap(ult_pn1,ult_pn2);
 		if(size[ult_pn1] >= size[ult_pn2]) {
 			parent[ult_pn2] = ult_pn1;
 			size[ult_pn1] += size[ult_pn2];

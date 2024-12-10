@@ -32,16 +32,16 @@ private:
 	}
 	
 	int query(int i, int tl, int tr, int l, int r) {
-		if(l > tr || r < tl) {
+		if(l > r) {
 			return 0;
 		}
 		
-		if(tl <= l && r <= tr) {
+		if(l == tl && r == tr) {
 			return st[i];
 		}
 		
 		int tm = tl + (tr - tl) / 2;
-		return query(2*i, tl, tm, l, r) + query(2*i+1, tm+1, tr, l, r);
+		return query(2*i, tl, tm, l, max(r,tm)) + query(2*i+1, tm+1, tr, min(l,tm+1), r);
 	}
 	
 public:
